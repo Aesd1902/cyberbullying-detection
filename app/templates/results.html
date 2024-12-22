@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="result-wrapper">
+            <h1>Detection Result</h1>
+            <p class="result"><strong>Prediction:</strong> {{ result }}</p>
+            
+            {% if offensive_words %}
+                <p class="offensive-words">
+                    <strong>Offensive Words Detected:</strong>
+                    <span style="color: red;">{{ offensive_words | join(', ') }}</span>
+                </p>
+            {% else %}
+                <p class="offensive-words"><strong>No offensive words detected.</strong></p>
+            {% endif %}
+            
+            <p class="input-text">
+                <strong>Your Text:</strong> <em>{{ input_text }}</em>
+            </p>
+            <a href="/" class="back-button">Analyze Another Text</a>
+        </div>
+    </div>
+</body>
+</html>
